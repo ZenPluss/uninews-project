@@ -1,67 +1,38 @@
-import React from 'react';
-import './globals.css';
+import type { Metadata } from 'next'
+import { Inter, Orbitron } from 'next/font/google'
+import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-interface LayoutProps {
-  children: React.ReactNode;
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron'
+})
+
+export const metadata: Metadata = {
+  title: 'AniManga News - Berita Terbaru Dunia Anime & Manga',
+  description: 'Portal berita terupdate tentang anime, manga, dan budaya Jepang',
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="id">
-      <head>
-        <title>Global News - Situs Berita Terkini</title>
-        <meta name="description" content="Dapatkan berita terkini dari seluruh dunia" />
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>
-        <header className="header">
-          <div className="container">
-            <div className="header-content">
-              <div className="logo">Global News</div>
-              <nav className="nav">
-                <ul>
-                  <li><a href="#">Beranda</a></li>
-                  <li><a href="#">Politik</a></li>
-                  <li><a href="#">Ekonomi</a></li>
-                  <li><a href="#">Teknologi</a></li>
-                  <li><a href="#">Olahraga</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </header>
-        
-        <main className="main-content">
-          <div className="container">
-            {children}
-          </div>
+    <html lang="id" className={`${inter.variable} ${orbitron.variable}`}>
+      <body className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+        <Header />
+        <main className="min-h-screen">
+          {children}
         </main>
-        
-        <footer className="footer">
-          <div className="container">
-            <div className="footer-content">
-              <div className="footer-brand">
-                <div className="logo">Global News</div>
-                <p>Menyajikan berita terkini dari seluruh dunia</p>
-              </div>
-              <nav className="footer-nav">
-                <ul>
-                  <li><a href="#">Tentang Kami</a></li>
-                  <li><a href="#">Kontak</a></li>
-                  <li><a href="#">Kebijakan Privasi</a></li>
-                  <li><a href="#">Syarat & Ketentuan</a></li>
-                </ul>
-              </nav>
-            </div>
-            <div className="copyright">
-              &copy; {new Date().getFullYear()} Global News. Semua hak dilindungi.
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
-  );
-};
-
-export default Layout;
+  )
+}
