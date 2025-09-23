@@ -39,7 +39,7 @@ const newsData = [
     id: 4,
     title: "One Piece Chapter 1100: Revelasi Masa Lalu Luffy",
     excerpt: "Chapter terbaru mengungkap rahasia besar tentang masa kecil Luffy dan koneksinya dengan Roger.",
-    image: "/images/OP1100.jpeg",
+    image: "/images/OP1100.jpg",
     category: "Manga",
     date: "2024-01-12",
     author: "Admin",

@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <div className="min-h-screen overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
         {/* Background dan efek lainnya tetap sama */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -73,13 +73,13 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="relative z-30 max-w-6xl mx-auto px-4">
+        <div className="relative z-30 max-w-4xl md:max-w-5xl lg:max-w-6xl mx-auto px-4">
           {/* Animated Logo/Title */}
           <div className={`transform transition-all duration-1000 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             <div className="relative inline-block">
-              <h1 className="text-6xl md:text-9xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 drop-shadow-2xl relative">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 drop-shadow-2xl relative">
                 ANINEWS
                 <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mix-blend-overlay animate-pulse"></span>
               </h1>
@@ -92,15 +92,15 @@ export default function Home() {
           <div className={`transform transition-all duration-1000 delay-300 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
-            <div className="glass-effect rounded-3xl p-8 mb-8 border border-white/20 shadow-2xl backdrop-blur-xl">
-              <p className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg">
+            <div className="glass-effect rounded-3xl p-6 sm:p-8 mb-8 border border-white/20 shadow-2xl backdrop-blur-xl">
+              <p className="text-lg sm:text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
                 Portal Berita Terupdate Dunia Anime & Manga
               </p>
               <div className="flex justify-center mt-4 space-x-2">
                 {['🎌', '🎮', '📺', '📚', '🎨'].map((emoji, i) => (
                   <span 
                     key={i}
-                    className="text-2xl animate-bounce"
+                    className="text-xl sm:text-2xl animate-bounce"
                     style={{ animationDelay: `${i * 0.2}s` }}
                   >
                     {emoji}
@@ -114,11 +114,11 @@ export default function Home() {
           <div className={`transform transition-all duration-1000 delay-500 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12">
               {/* Tombol Jelajahi Berita - Scroll ke section berita */}
               <button 
                 onClick={scrollToNews}
-                className="group relative bg-gradient-to-r from-purple-600 to-pink-600 px-10 py-5 rounded-2xl font-bold text-xl hover-lift transform hover:scale-110 transition-all duration-300 shadow-2xl overflow-hidden"
+                className="group relative bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-2xl font-bold text-lg sm:text-xl hover-lift transform hover:scale-110 transition-all duration-300 shadow-2xl overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   📖 Jelajahi Berita
@@ -130,7 +130,7 @@ export default function Home() {
               {/* Tombol Trending Anime - Redirect ke halaman anime */}
               <button 
                 onClick={goToAnimePage}
-                className="group relative glass-effect border-2 border-white/30 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 transition-all duration-300 shadow-2xl overflow-hidden"
+                className="group relative glass-effect border-2 border-white/30 px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-2xl font-bold text-lg sm:text-xl hover:bg-white/10 transition-all duration-300 shadow-2xl overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   🎬 Trending Anime
