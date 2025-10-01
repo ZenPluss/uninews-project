@@ -1,14 +1,14 @@
 name: OWASP ZAP Scan
 
 on:
-  workflow_dispatch:   # manual trigger
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'  # tiap minggu (Minggu jam 00:00 UTC)
+    - cron: '0 0 * * 0'
 
 permissions:
-  contents: read        # boleh baca repo
-  pull-requests: write  # bisa nulis komentar di PR (opsional)
-  issues: write         # bisa update issue (opsional)
+  contents: read
+  pull-requests: write
+  issues: write
 
 jobs:
   zap_scan:
@@ -21,7 +21,7 @@ jobs:
         uses: zaproxy/action-baseline@v0.9.0
         with:
           target: "https://anima-news.netlify.app"
-          cmd_options: "-a"   # otomatis aktif, bisa diubah sesuai kebutuhan
+          cmd_options: "-a"
 
       - name: List files (debug)
         run: ls -R
@@ -29,5 +29,5 @@ jobs:
       - name: Upload ZAP Report
         uses: actions/upload-artifact@v4
         with:
-          name: zap-report
+          name: zap-report   # <--- disini ganti namanya
           path: report_html.html
